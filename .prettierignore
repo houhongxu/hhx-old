@@ -1,0 +1,17 @@
+.DS_Store
+.gitignore
+.eslintignore
+.prettierignore
+package.json
+LICENSE
+*.lock
+yarn-error.log
+CNAME
+
+dist/
+functions/
+node_modules/
+out/
+build/
+
+.env
