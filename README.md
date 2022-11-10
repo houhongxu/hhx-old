@@ -6,6 +6,7 @@
 
 - [x] turborepo 初始化
 - [x] client 初始化
+- [x] 迁移博客到 apps/docs
 - [ ] api 初始化
 - [ ] 腾讯云部署
 - [ ] CICD
