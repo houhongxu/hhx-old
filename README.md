@@ -4,8 +4,21 @@
 
 ## TODO
 
-1. [x] turborepo 初始化
-2. [ ] CICD
-3. [ ] api 初始化
-4. [ ] client 初始化
-5. [ ] components 初始化
+- [x] turborepo 初始化
+- [x] client 初始化
+- [ ] api 初始化
+- [ ] 腾讯云部署
+- [ ] CICD
+- [ ] ui 初始化(参考 antd)
+- [ ] hooks 初始化(参考 ahooks)
+
+### 依赖选型
+
+偏向于公司已经使用的技术
+
+- yarn
+- turborepo
+- tcb
+- umi
+- koa
+- ts
