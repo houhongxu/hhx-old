@@ -47,3 +47,8 @@
   padding-left: var(--ifm-pre-padding);
   margin-left: var(--ifm-global-spacing);
 }
+
+/* Home组件样式 */
+.main-wrapper {
+  display: flex;
+}

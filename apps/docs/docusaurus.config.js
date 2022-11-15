@@ -56,7 +56,7 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: 'HHX的博客',
+        title: 'HHX的笔记',
         logo: {
           alt: 'HHX LOGO',
           src: 'img/logo.svg',
