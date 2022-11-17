@@ -18,7 +18,7 @@ function HomepageHeader() {
           <Link
             className='button button--secondary button--lg'
             style={{ backgroundColor: '#61DAFB', border: 'none', borderRadius: '0' }}
-            to='docs/react/intro/架构'
+            to='docs/笔记-react/intro/架构'
           >
             先开始学TMD五分钟⏱️
           </Link>

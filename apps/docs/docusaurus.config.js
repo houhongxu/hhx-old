@@ -64,7 +64,7 @@ const config = {
         items: [
           {
             type: 'doc',
-            docId: 'react/intro/架构',
+            docId: '笔记-react/intro/架构',
             position: 'left',
             label: '文档',
           },
@@ -84,7 +84,7 @@ const config = {
             items: [
               {
                 label: '文档',
-                to: '/docs/react/intro/架构',
+                to: '/docs/笔记-react/intro/架构',
               },
               {
                 label: '博客',
