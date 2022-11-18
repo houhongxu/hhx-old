@@ -9,9 +9,9 @@ yarn-error.log
 CNAME
 
 dist/
-functions/
 node_modules/
 out/
 build/
+lib/
 
 .env
