@@ -8,6 +8,7 @@
 - [x] turborepo 初始化
 - [x] client 初始化
 - [x] 迁移博客到 apps/docs
+- [ ] yarn 迁移为 pnpm
 - [ ] api 初始化 create-koa-cli（参考 creat-react-app 与 vue-cli 与[ts-cli](https://github.com/liyongning/ts-cli)）
 - [ ] 腾讯云部署
 - [ ] CICD
@@ -23,7 +24,7 @@
 
 偏向于公司已经在使用的技术
 
-- yarn
+- yarn（pnpm 迁移成本低，所以迁移）
 - turborepo
 - tcb
 - umi

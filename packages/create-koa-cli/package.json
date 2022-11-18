@@ -1,0 +1,30 @@
+{
+  "name": "create-koa-cli",
+  "version": "0.0.14",
+  "author": "HHX <903040380@qq.com>",
+  "license": "MIT",
+  "bin": {
+    "create-koa-cli": "./bin/cli.js"
+  },
+  "scripts": {
+    "build": "rm -rf lib && tsc && tsc-alias",
+    "pub": "node ./publish.js"
+  },
+  "files": [
+    "bin",
+    "lib"
+  ],
+  "dependencies": {
+    "@types/shelljs": "^0.8.11",
+    "chalk": "^4.0.0",
+    "commander": "^9.4.1",
+    "inquirer": "^8.0.0",
+    "shelljs": "^0.8.5"
+  },
+  "devDependencies": {
+    "@types/inquirer": "^9.0.3",
+    "@types/node": "^18.11.9",
+    "tsc-alias": "^1.7.1",
+    "typescript": "^4.8.4"
+  }
+}
