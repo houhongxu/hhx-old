@@ -19,5 +19,5 @@
     "node": ">=14.0.0"
   },
   "dependencies": {},
-  "packageManager": "yarn@1.22.18"
+  "packageManager": "pnpm@7.9.3"
 }

@@ -1,14 +1,14 @@
 # 面试
 
-为了面试的所有准备与总结
-将面试相关问题在本项目内逐一实现
+- 为了面试的所有准备与总结，将面试相关问题在本项目内逐一实现
+- turborepo 集合了所有项目方便更新
 
 ## TODO
 
 - [x] turborepo 初始化
 - [x] client 初始化
 - [x] 迁移博客到 apps/docs
-- [ ] yarn 迁移为 pnpm
+- [x] yarn 迁移为 pnpm
 - [ ] api 初始化 create-koa-cli（参考 creat-react-app 与 vue-cli 与[ts-cli](https://github.com/liyongning/ts-cli)）
 - [ ] 腾讯云部署
 - [ ] CICD
@@ -39,5 +39,19 @@
 
 ### 提交信息规范
 
-以 `feat(范围): 信息` 的方式规范提交信息
+采用比较多的是 Angular 规范
+
+格式为：
+`<type>(<scope>): <subject>`
+
 不在具体包内则为 all
+
+type 则依据 Angular 规范微调
+
+- feat 实现新功能
+- fix 修复问题
+- chore 无法归类的杂项
+- refactor 重构
+- test 测试
+- perf 性能优化
+- doc 文档（能力有限暂时只能是 README 了）
