@@ -1,10 +1,10 @@
 {
-  "name": "create-koa-cli",
-  "version": "0.0.14",
+  "name": "create-koa-env",
+  "version": "0.0.1",
   "author": "HHX <903040380@qq.com>",
   "license": "MIT",
   "bin": {
-    "create-koa-cli": "./bin/cli.js"
+    "create-koa-env": "./bin/cli.js"
   },
   "scripts": {
     "build": "rm -rf lib && tsc && tsc-alias",

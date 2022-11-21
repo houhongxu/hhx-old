@@ -9,7 +9,7 @@
 - [x] client 初始化
 - [x] 迁移博客到 apps/docs
 - [x] yarn 迁移为 pnpm
-- [ ] api 初始化 create-koa-cli（参考 creat-react-app 与 vue-cli 与[ts-cli](https://github.com/liyongning/ts-cli)）
+- [ ] api 初始化 create-koa-cli
 - [ ] 腾讯云部署
 - [ ] CICD
 - [ ] ui 初始化(参考 antd)
@@ -18,7 +18,7 @@
 
 ### api 初始化脚手架 ing
 
-由于项目初期后端未使用成熟框架如 nestjs,midwayjs 等，所以自己搭建脚手架减少重复的初始化工作
+由于项目初期后端未使用成熟框架如 nestjs，midwayjs 等，所以自己搭建脚手架减少重复的初始化工作
 
 ## 依赖选型
 
@@ -55,3 +55,10 @@ type 则依据 Angular 规范微调
 - test 测试
 - perf 性能优化
 - doc 文档（能力有限暂时只能是 README 了）
+
+## TOLEARN
+
+- [ ] ts 重写 axios
+- [ ] create-koa-cli
+- [ ] serverless,ncc,rollup,tsup 选型后端打包工具
+- [ ] 高德地图 api 封装
