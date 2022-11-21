@@ -3,6 +3,7 @@ const path = require('path')
 
 const cjs = () => {
   return webpack({
+    name: 'cjs',
     entry: path.resolve(__dirname, './index.js'),
     // 当 mode 为 production 时，将自动开启 terser 对代码进行压缩及 Tree Shaking
     mode: 'none',
@@ -16,5 +17,5 @@ const cjs = () => {
 }
 
 cjs().run((err, stats) => {
-  console.log(err ?? '---done---')
+  console.log(err ?? '---cjs---done---')
 })

@@ -2,10 +2,6 @@ import { readFileSync, writeFileSync } from 'fs'
 import { resolve } from 'path'
 import { packageJson } from 'types'
 
-export const isArrayEmpty = (arr?: any[]) => !Array.isArray(arr) || arr.length === 0
-
-export const isObjectEmpty = (obj?: object) => isArrayEmpty(Object.keys(obj ?? {}))
-
 /**
  * @description: 读取package.json 文件
  */
@@ -44,7 +40,7 @@ export function writeJsonFile<T>(filename: string, content: T): void {
  * @description: 获取文件绝对路径
  * @param {string} fileName
  */
-export function getFilePath(fileName: string): string {
+export function getFullPath(fileName: string): string {
   return resolve(process.cwd(), fileName)
 }
 

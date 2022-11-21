@@ -21,6 +21,7 @@ const path = require('path')
 // ! 我们请求的接口返回的是 json 结构的数据，jsonp 请求返回的是 js 文件，里面就一个callback，调用了callback，传递了数据
 const codesplit = () => {
   return webpack({
+    name: 'codesplit',
     entry: path.resolve(__dirname, './index.js'),
     mode: 'none',
     output: {
@@ -94,5 +95,5 @@ const magiccomment = () => {
 }
 
 codesplit().run((err, stats) => {
-  console.log(err ?? '---done---')
+  console.log(err ?? '---code-spliting---done---')
 })

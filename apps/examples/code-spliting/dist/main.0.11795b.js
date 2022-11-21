@@ -1,4 +1,4 @@
-(self["webpackChunkwebpack_demo"] = self["webpackChunkwebpack_demo"] || []).push([[0],[
+(self["webpackChunkexamples"] = self["webpackChunkexamples"] || []).push([[0],[
 /* 0 */
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -6,8 +6,8 @@
 // import _ from 'lodash'
 // console.log(_.get)
 
-__webpack_require__.e(/* import() */ 2).then(__webpack_require__.bind(__webpack_require__, 1)).then((m) => {
-  console.log(m.default(3, 4))
+__webpack_require__.e(/* import() */ 2).then(__webpack_require__.t.bind(__webpack_require__, 1, 23)).then((m) => {
+  console.log('run axios')
 })
 
 // 第二次 import() 时不会再次加载 chunk

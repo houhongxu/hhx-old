@@ -13,5 +13,5 @@ const esm = () =>
   })
 
 esm().run((err, stats) => {
-  console.log(err ?? '---done---')
+  console.log(err ?? '---esm---done---')
 })

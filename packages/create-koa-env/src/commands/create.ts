@@ -3,7 +3,7 @@ import { log } from 'console'
 import { existsSync } from 'fs'
 import inquirer from 'inquirer'
 import { cd, exec } from 'shelljs'
-import { getFilePath, getPackageJson, updatePackageJson } from 'utils'
+import { getFullPath, getPackageJson, updatePackageJson } from 'utils'
 
 /**
  * @description: 创建新项目
@@ -31,7 +31,7 @@ export async function create(projectName: string): Promise<void> {
  */
 function isFileExist(filename: string) {
   // 获取文件路径
-  const filePath = getFilePath(filename)
+  const filePath = getFullPath(filename)
 
   // 若文件存在则退出进程
   if (existsSync(filePath)) {

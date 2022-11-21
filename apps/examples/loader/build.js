@@ -25,5 +25,5 @@ const loader = () =>
   })
 
 loader().run((err, stats) => {
-  console.log(err ?? '---done---')
+  console.log(err ?? '---loader---done---')
 })
