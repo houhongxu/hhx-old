@@ -5,15 +5,15 @@ const toString = (value: any) => Object.prototype.toString.call(value)
  * @param {any} value
  */
 export function isDate(value: any): value is Date {
-  return toString(value) === '[Object Date]'
+  return toString(value) === '[object Date]'
 }
 
 /**
- * @description: 判断是否为对象
+ * @description: 判断是否为普通对象
  * @param {any} value
  */
-export function isObject(value: any): value is Date {
-  return value !== null && typeof value === 'object'
+export function isPlainObject(value: any): value is Object {
+  return toString(value) === '[object Object]'
 }
 
 /**
@@ -26,4 +26,4 @@ export const isArrayEmpty = (value?: any) => !Array.isArray(value) || value.leng
  * @description: 判断是否为空对象
  * @param {any} value
  */
-export const isObjectEmpty = (value?: any) => !isObject(value) || isArrayEmpty(Object.keys(value))
+export const isObjectEmpty = (value?: any) => !isPlainObject(value) || isArrayEmpty(Object.keys(value))

@@ -4,8 +4,8 @@
   "description": "",
   "private": true,
   "scripts": {
-    "test:axios": "pnpm -F hhx-axios build && webpack && serve ./code-spliting/dist",
-    "start": "webpack serve --open",
+    "dev:axios": "pnpm -F hhx-axios build && webpack serve --open",
+    "dev": "webpack serve --open",
     "build": "webpack"
   },
   "keywords": [],

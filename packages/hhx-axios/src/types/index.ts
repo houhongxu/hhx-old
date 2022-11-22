@@ -19,4 +19,19 @@ export interface AxiosRequestConfig {
   method?: Method
   data?: any
   params?: any
+  headers?: Pairs
+  responseType?: XMLHttpRequestResponseType
 }
+
+export interface AxiosResponse {
+  data: any
+  status: number
+  statusText: string
+  headers: Pairs
+  config: AxiosRequestConfig
+  request: XMLHttpRequest
+}
+
+export type AxiosPromise = Promise<AxiosResponse>
+
+export type Pairs = { [key: string]: string }

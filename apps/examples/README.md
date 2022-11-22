@@ -8,9 +8,16 @@
 
 总体的多入口打包尚未做分别配置，暂时不用，仅做示例
 
+因为需要热重载，所以还是需要进行统一配置
+
+统一配置时注释掉每个 build.js 中的执行文件
+
+热重载会自动打开从上到下（因为读取目录时的顺序）的**第一个**有 html 配置的服务，如果没有是 Cannot get 页面
+
 ## TODO
 
 - [x] 将测试的手写简易 webpack 分离
+- [x] 热重载
 
 ## 注意
 
@@ -19,3 +26,5 @@ vercel 的 serve 是以 package.json 目录来算，在 code-spliting 目录不�
 ## 测试 hhx-axios 相关
 
 修改好 hhx-axios 后 执行该用例目录下的 test:axios 即可
+
+改进为热重载

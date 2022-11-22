@@ -1,3 +1,7 @@
+/**
+ * @description: 进行uri编码才能拼接为url
+ * @param {string} value
+ */
 export function encode(value: string) {
   return encodeURIComponent(value)
     .replace(/%40/g, '@')
