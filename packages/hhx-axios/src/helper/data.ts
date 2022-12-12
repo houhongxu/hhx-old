@@ -1,4 +1,4 @@
-import { AxiosRequestConfig, AxiosResponse, Pairs } from 'types'
+import { AxiosRequestConfig, AxiosResponse } from 'types'
 import { isPlainObject } from 'utils'
 
 /**
@@ -22,7 +22,7 @@ export function transformData(config: AxiosRequestConfig) {
  * @param {AxiosResponse} data
  */
 export function parseData(data: AxiosResponse['data']) {
-  if (typeof data === 'string') {
+  if (data && typeof data === 'string') {
     try {
       data = JSON.parse(data)
     } catch (err) {

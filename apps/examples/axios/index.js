@@ -1,4 +1,5 @@
 const { axios } = require('hhx-axios')
+// --- params
 
 // axios({
 //   method: 'get',
@@ -58,7 +59,7 @@ const { axios } = require('hhx-axios')
 //   },
 // })
 
-// ---
+// --- data
 // axios({
 //   method: 'post',
 //   url: 'http://httpbin.org/post',
@@ -76,7 +77,7 @@ const { axios } = require('hhx-axios')
 //   data: arr,
 // })
 
-//---
+//--- 请求头
 
 // axios({
 //   method: 'post',
@@ -109,27 +110,80 @@ const { axios } = require('hhx-axios')
 //   data: searchParams,
 // })
 
-//---
+//--- 异步响应
+
+// axios({
+//   method: 'post',
+//   url: 'http://httpbin.org/post',
+//   data: {
+//     a: 1,
+//     b: 1,
+//   },
+// }).then((res) => {
+//   console.log(res)
+// })
+
+// axios({
+//   method: 'post',
+//   url: 'http://httpbin.org/post',
+//   responseType: 'json',
+//   data: {
+//     a: 2,
+//     b: 2,
+//   },
+// }).then((res) => {
+//   console.log(res)
+// })
+
+// --- 错误处理
 
 axios({
-  method: 'post',
-  url: 'http://httpbin.org/post',
-  data: {
-    a: 1,
-    b: 1,
-  },
-}).then((res) => {
-  console.log(res)
+  method: 'get',
+  url: 'http://httpbin.org/status/404',
 })
+  .then((res) => {
+    console.log(res)
+  })
+  .catch((err) => {
+    console.log('404', err)
+  })
 
 axios({
-  method: 'post',
-  url: 'http://httpbin.org/post',
-  responseType: 'json',
-  data: {
-    a: 2,
-    b: 2,
-  },
-}).then((res) => {
-  console.log(res)
+  method: 'get',
+  url: 'http://httpbin.org/status/500',
 })
+  .then((res) => {
+    console.log(res)
+  })
+  .catch((err) => {
+    console.log('500', err)
+  })
+
+axios({
+  method: 'get',
+  url: 'http://httpbin.org',
+  timeout: 10,
+})
+  .then((res) => {
+    console.log(res)
+  })
+  .catch((err) => {
+    console.log('timeout', err)
+  })
+
+// --- 错误处理增强与类型导出
+
+axios({
+  method: 'get',
+  url: 'http://httpbin.org/status/500',
+})
+  .then((res) => {
+    console.log(res)
+  })
+  .catch((err) => {
+    console.log(err.message)
+    console.log(err.config)
+    console.log(err.code)
+    console.log(err.request)
+    console.log(err.isAxiosError)
+  })
