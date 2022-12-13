@@ -27,4 +27,4 @@ vercel 的 serve 是以 package.json 目录来算，在 code-spliting 目录不�
 
 修改好 hhx-axios 后 执行该用例目录下的 test:axios 即可
 
-改进为热重载
+改进为热重载 dev:axios
