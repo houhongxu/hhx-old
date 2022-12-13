@@ -54,7 +54,7 @@ type 则依据 Angular 规范微调
 - refactor 重构
 - test 测试
 - perf 性能优化
-- doc 文档（能力有限暂时只能是 README 了）
+- doc 文档
 
 ## TOLEARN
 
