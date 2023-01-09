@@ -3,6 +3,7 @@ import clsx from 'clsx'
 import Link from '@docusaurus/Link'
 import Layout from '@theme/Layout'
 import styles from './index.module.css'
+
 function HomepageHeader() {
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)} style={{ backgroundColor: '#282C34' }}>
