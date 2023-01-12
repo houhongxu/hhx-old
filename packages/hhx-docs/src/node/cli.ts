@@ -1,5 +1,7 @@
 import cac from 'cac'
+import { resolve } from 'path'
 import path = require('path')
+import { build } from './build'
 import { createDevServer } from './dev'
 
 // 读取版本号
@@ -24,7 +26,12 @@ cli
   })
 
 cli.command('build [root]', 'build for production / 打包为生产环境包').action(async (root: string) => {
-  console.log('build', root)
+  try {
+    root = resolve(root)
+    await build(root)
+  } catch (e) {
+    console.log(e)
+  }
 })
 
 cli.parse()

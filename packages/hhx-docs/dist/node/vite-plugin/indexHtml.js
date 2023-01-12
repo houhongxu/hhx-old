@@ -15,7 +15,7 @@ function vitePluginIndexHtml() {
                         tag: 'script',
                         attrs: {
                             type: 'module',
-                            src: '/src/runtime/client-entry.tsx', // vite约定绝对路径前添加
+                            src: `/@fs/${constants_1.CLIENT_ENTRY_PATH}`, // vite约定绝对路径前添加
                         },
                         injectTo: 'body',
                     },
@@ -29,7 +29,7 @@ function vitePluginIndexHtml() {
                     // 读取模板文件
                     let html = await (0, promises_1.readFile)(constants_1.DEFAULT_HTML_PATH, 'utf-8');
                     try {
-                        // 使用vite内的html转换处理，使vite可以控制react全局热更新，再通过@vitejs/plugin-react实现局部热更新
+                        // 使用vite内的html转换处理，使vite可以控制react全局热更新，再通过@vitejs/plugin-react实现局部热更新（会按顺序执行所有插件的该api）
                         html = await server.transformIndexHtml(req.url, html, req.originalUrl);
                         // 发送html模板给客户端
                         res.statusCode = 200;

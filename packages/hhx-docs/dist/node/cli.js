@@ -1,7 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const cac_1 = require("cac");
+const path_1 = require("path");
 const path = require("path");
+const build_1 = require("./build");
 const dev_1 = require("./dev");
 // 读取版本号
 const version = require('../../package.json').version;
@@ -22,6 +24,12 @@ cli
     server.printUrls();
 });
 cli.command('build [root]', 'build for production / 打包为生产环境包').action(async (root) => {
-    console.log('build', root);
+    try {
+        root = (0, path_1.resolve)(root);
+        await (0, build_1.build)(root);
+    }
+    catch (e) {
+        console.log(e);
+    }
 });
 cli.parse();
