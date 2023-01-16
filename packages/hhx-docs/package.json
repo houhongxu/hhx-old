@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "tsc -w ",
     "dev:comment": "-w 表示监听模式，这样修改文件后就会自动触发重新编译",
-    "build": "tsc && node bin/cli.js dev ."
+    "build": "tsc"
   },
   "bin": {
     "hhx-docs": "bin/cli.js"

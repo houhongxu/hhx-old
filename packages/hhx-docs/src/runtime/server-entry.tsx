@@ -1,6 +1,6 @@
 import { App } from './app'
 import { renderToString } from 'react-dom/server'
 
-export function renderInserver() {
+export function renderInServer() {
   return renderToString(<App />)
 }

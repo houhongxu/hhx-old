@@ -12,6 +12,7 @@ export async function bundle(root: string) {
     root,
     // 此插件，自动注入 import React from 'react'，避免 React is not defined 的错误
     plugins: [pluginReact()],
+    // 客户端build目录下自动放入assets文件夹，文件夹内才是客户端入口的js文件，script标签引入时自动以assets目录为根目录
     build: {
       ssr: isServer,
       outDir: isServer ? '.temp' : 'build',
@@ -40,8 +41,8 @@ export async function bundle(root: string) {
 }
 
 export async function renderPage(renderInserver: () => string, root: string, clientBundle: RollupOutput) {
-  // 获取入口chunk
-  const clientChunk = clientBundle.output.find((chunk) => chunk.type === 'chunk' && chunk.isEntry)
+  // 获取客户端入口chunk，引入后才完成同构，页面才可以交互
+  const clientEntryChunk = clientBundle.output.find((chunk) => chunk.type === 'chunk' && chunk.isEntry)
 
   console.log(`Rendering page in server side... / 服务端渲染页面中。。。`)
 
@@ -59,14 +60,14 @@ export async function renderPage(renderInserver: () => string, root: string, cli
       </head>
       <body>
         <div id="root">${appHtml}</div>
-        <script type="module" src="/${clientChunk?.fileName}"></script>
+        <script type="module" src="/${clientEntryChunk?.fileName}"></script>
       </body>
     </html>
   `.trim()
 
   // 生成客户端构建目录
   await fs.ensureDir(join(root, 'build'))
-  // 在客户端目录中，生成服务端构建成的html文件
+  // 在产物目录中，生成服务端构建成的html文件
   await fs.writeFile(join(root, 'build/index.html'), html)
   // 移除服务端构建目录
   await fs.remove(join(root, '.temp'))
@@ -78,7 +79,7 @@ export async function build(root: string = process.cwd()) {
   // 服务端入口路径
   const serverEntryPath = join(root, '.temp', 'server-entry.js')
   // 获取服务端渲染函数
-  const { renderInserver } = require(serverEntryPath)
-
-  await renderPage(renderInserver, root, clientBundle)
+  const { renderInServer } = require(serverEntryPath)
+  // 服务端渲染产出ssg产物
+  await renderPage(renderInServer, root, clientBundle)
 }

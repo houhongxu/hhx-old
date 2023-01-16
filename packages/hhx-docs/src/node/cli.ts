@@ -19,13 +19,19 @@ cli
     root = root ? path.resolve(root) : process.cwd()
     // 实例化服务
     const server = await createDevServer(root)
-    // 开启服务
-    await server.listen()
+
+    try {
+      // 开启服务
+      await server.listen()
+    } catch (e) {
+      console.log(e)
+    }
+
     // 打印服务链接
     server.printUrls()
   })
 
-cli.command('build [root]', 'build for production / 打包为生产环境包').action(async (root: string) => {
+cli.command('build [root]', 'build for production / 构建为生产环境包').action(async (root: string) => {
   try {
     root = resolve(root)
     await build(root)

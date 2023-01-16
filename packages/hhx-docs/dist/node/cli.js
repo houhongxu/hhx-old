@@ -18,12 +18,17 @@ cli
     root = root ? path.resolve(root) : process.cwd();
     // 实例化服务
     const server = await (0, dev_1.createDevServer)(root);
-    // 开启服务
-    await server.listen();
+    try {
+        // 开启服务
+        await server.listen();
+    }
+    catch (e) {
+        console.log(e);
+    }
     // 打印服务链接
     server.printUrls();
 });
-cli.command('build [root]', 'build for production / 打包为生产环境包').action(async (root) => {
+cli.command('build [root]', 'build for production / 构建为生产环境包').action(async (root) => {
     try {
         root = (0, path_1.resolve)(root);
         await (0, build_1.build)(root);
