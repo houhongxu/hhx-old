@@ -27,3 +27,11 @@ export const isArrayEmpty = (value?: any) => !Array.isArray(value) || value.leng
  * @param {any} value
  */
 export const isObjectEmpty = (value?: any) => !isObject(value) || isArrayEmpty(Object.keys(value))
+
+/**
+ * @description: 判断是否为普通对象
+ * @param {any} value
+ */
+export function isPlainObject(value: any): value is Object {
+  return toString(value) === '[object Object]'
+}

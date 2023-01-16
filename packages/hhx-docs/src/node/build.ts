@@ -3,7 +3,11 @@ import { CLIENT_ENTRY_PATH, SERVER_ENTRY_PATH } from './constants'
 import pluginReact from '@vitejs/plugin-react'
 import { join } from 'path'
 import type { RollupOutput } from 'rollup'
-import * as fs from 'fs-extra'
+import fs from 'fs-extra'
+import ora from 'ora'
+import { pathToFileURL } from 'url'
+
+const spinner = ora()
 
 export async function bundle(root: string) {
   // 根据是否为服务端渲染返回vite打包配置
@@ -25,7 +29,7 @@ export async function bundle(root: string) {
     },
   })
 
-  console.log(`Building client + server bundles... / 构建客户端与服务端的包中。。。`)
+  spinner.start(`Building client + server bundles... / 构建客户端与服务端的包中。。。`)
 
   try {
     // 并发获取双端构建的包
@@ -38,13 +42,15 @@ export async function bundle(root: string) {
   } catch (e) {
     console.log(e)
   }
+
+  spinner.stop()
 }
 
 export async function renderPage(renderInserver: () => string, root: string, clientBundle: RollupOutput) {
   // 获取客户端入口chunk，引入后才完成同构，页面才可以交互
   const clientEntryChunk = clientBundle.output.find((chunk) => chunk.type === 'chunk' && chunk.isEntry)
 
-  console.log(`Rendering page in server side... / 服务端渲染页面中。。。`)
+  spinner.start(`Rendering page in server side... / 服务端渲染页面中。。。`)
 
   // 获取服务端渲染的html
   const appHtml = renderInserver()
@@ -71,6 +77,8 @@ export async function renderPage(renderInserver: () => string, root: string, cli
   await fs.writeFile(join(root, 'build/index.html'), html)
   // 移除服务端构建目录
   await fs.remove(join(root, '.temp'))
+
+  spinner.stop()
 }
 
 export async function build(root: string = process.cwd()) {
@@ -78,8 +86,8 @@ export async function build(root: string = process.cwd()) {
   const [clientBundle] = await bundle(root)
   // 服务端入口路径
   const serverEntryPath = join(root, '.temp', 'server-entry.js')
-  // 获取服务端渲染函数
-  const { renderInServer } = require(serverEntryPath)
+  // 获取服务端渲染函数，pathToFileURL兼容Windows,await import兼容esm
+  const { renderInServer } = await import(pathToFileURL(serverEntryPath).toString())
   // 服务端渲染产出ssg产物
   await renderPage(renderInServer, root, clientBundle)
 }

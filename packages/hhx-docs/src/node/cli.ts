@@ -1,6 +1,5 @@
 import cac from 'cac'
 import { resolve } from 'path'
-import path = require('path')
 import { build } from './build'
 import { createDevServer } from './dev'
 
@@ -16,7 +15,7 @@ cli
   .alias('dev')
   .action(async (root: string) => {
     // 判断是否指定路径
-    root = root ? path.resolve(root) : process.cwd()
+    root = root ? resolve(root) : process.cwd()
     // 实例化服务
     const server = await createDevServer(root)
 
