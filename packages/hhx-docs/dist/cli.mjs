@@ -15,7 +15,8 @@ var require_package = __commonJS({
         dev: "tsup --watch",
         "dev:comment": "--watch \u8868\u793A\u76D1\u542C\u6A21\u5F0F\uFF0C\u8FD9\u6837\u4FEE\u6539\u6587\u4EF6\u540E\u5C31\u4F1A\u81EA\u52A8\u89E6\u53D1\u91CD\u65B0\u7F16\u8BD1",
         build: "tsup",
-        preview: "cd build && npx serve ."
+        preview: "cd build && npx serve .",
+        "test:init": "vitest run"
       },
       bin: {
         "hhx-docs": "bin/cli.js"
@@ -24,21 +25,26 @@ var require_package = __commonJS({
       author: "",
       license: "ISC",
       devDependencies: {
+        "@playwright/test": "1.26.1",
         "@types/fs-extra": "^11.0.1",
         "@types/node": "^18.11.9",
         "@types/react": "^18.0.26",
         "@types/react-dom": "^18.0.10",
+        execa: "^6.1.0",
         rollup: "^3.3.0",
+        server: "^1.0.38",
         tsup: "^6.1.3",
-        typescript: "^4.9.3"
+        tsx: "^3.12.2",
+        typescript: "^4.9.3",
+        vitest: "^0.27.1"
       },
       dependencies: {
         "@vitejs/plugin-react": "^3.0.1",
         cac: "^6.7.14",
         "fs-extra": "^11.1.0",
+        ora: "^6.1.2",
         react: "^18.2.0",
         "react-dom": "^18.2.0",
-        ora: "^6.1.2",
         vite: "^3.2.4"
       }
     };
@@ -69,7 +75,7 @@ var SERVER_ENTRY_PATH = join(PACKAGE_ROOT_PATH, "src", "runtime", "server-entry.
 // src/node/build.ts
 import pluginReact from "@vitejs/plugin-react";
 import { join as join2 } from "path";
-import fs from "fs-extra";
+import fse from "fs-extra";
 import ora from "ora";
 import { pathToFileURL } from "url";
 var spinner = ora();
@@ -120,9 +126,9 @@ async function renderPage(renderInserver, root, clientBundle) {
       </body>
     </html>
   `.trim();
-  await fs.ensureDir(join2(root, "build"));
-  await fs.writeFile(join2(root, "build/index.html"), html);
-  await fs.remove(join2(root, ".temp"));
+  await fse.ensureDir(join2(root, "build"));
+  await fse.writeFile(join2(root, "build/index.html"), html);
+  await fse.remove(join2(root, ".temp"));
   spinner.stop();
 }
 async function build(root = process.cwd()) {

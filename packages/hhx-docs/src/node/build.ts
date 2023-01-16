@@ -3,7 +3,7 @@ import { CLIENT_ENTRY_PATH, SERVER_ENTRY_PATH } from './constants'
 import pluginReact from '@vitejs/plugin-react'
 import { join } from 'path'
 import type { RollupOutput } from 'rollup'
-import fs from 'fs-extra'
+import fse from 'fs-extra'
 import ora from 'ora'
 import { pathToFileURL } from 'url'
 
@@ -72,11 +72,11 @@ export async function renderPage(renderInserver: () => string, root: string, cli
   `.trim()
 
   // 生成客户端构建目录
-  await fs.ensureDir(join(root, 'build'))
+  await fse.ensureDir(join(root, 'build'))
   // 在产物目录中，生成服务端构建成的html文件
-  await fs.writeFile(join(root, 'build/index.html'), html)
+  await fse.writeFile(join(root, 'build/index.html'), html)
   // 移除服务端构建目录
-  await fs.remove(join(root, '.temp'))
+  await fse.remove(join(root, '.temp'))
 
   spinner.stop()
 }
