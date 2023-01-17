@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "main": "src/index.js",
   "author": "HHX <a903040380@gmail.com>",
-  "private": "true",
   "scripts": {
     "build": "webpack --mode=production --node-env=production",
     "dev": "webpack --mode=development",
@@ -40,7 +39,6 @@
     "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^4.10.0"
   },
-  "description": "My webpack project",
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"

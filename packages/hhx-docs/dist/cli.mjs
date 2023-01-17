@@ -15,8 +15,11 @@ var require_package = __commonJS({
         dev: "tsup --watch",
         "dev:comment": "--watch \u8868\u793A\u76D1\u542C\u6A21\u5F0F\uFF0C\u8FD9\u6837\u4FEE\u6539\u6587\u4EF6\u540E\u5C31\u4F1A\u81EA\u52A8\u89E6\u53D1\u91CD\u65B0\u7F16\u8BD1",
         build: "tsup",
-        preview: "cd build && npx serve .",
-        "test:init": "vitest run"
+        preview: "cd build && serve .",
+        "test:unit": "vitest run",
+        "test:comment": "\u76F4\u63A5\u4F7F\u7528vitest\u547D\u4EE4\u53EF\u4EE5\u5F00\u542F\u76D1\u542C\u6A21\u5F0F",
+        "prepare:e2e": "tsx scripts/prepare-e2e.ts",
+        "test:e2e": "playwright test"
       },
       bin: {
         "hhx-docs": "bin/cli.js"
@@ -32,7 +35,6 @@ var require_package = __commonJS({
         "@types/react-dom": "^18.0.10",
         execa: "^6.1.0",
         rollup: "^3.3.0",
-        server: "^1.0.38",
         tsup: "^6.1.3",
         tsx: "^3.12.2",
         typescript: "^4.9.3",
@@ -60,7 +62,7 @@ var __dirname = /* @__PURE__ */ getDirname();
 
 // src/node/cli.ts
 import cac from "cac";
-import { resolve } from "path";
+import { resolve as resolve2 } from "path";
 
 // src/node/build.ts
 import { build as viteBuild } from "vite";
@@ -182,7 +184,36 @@ function vitePluginIndexHtml() {
 
 // src/node/dev.ts
 import pluginReact2 from "@vitejs/plugin-react";
+
+// src/node/config.ts
+import { resolve } from "path";
+import fs from "fs-extra";
+import { loadConfigFromFile } from "vite";
+async function resolveConfig(root, command, mode) {
+  const configPath = getUserConfigPath(root);
+  const result = await loadConfigFromFile({ command, mode }, configPath, root);
+  if (result) {
+    const { config: rawConfig = {} } = result;
+    const userConfig = await (typeof rawConfig === "function" ? rawConfig() : rawConfig);
+    return [configPath, userConfig];
+  } else {
+    return [configPath, {}];
+  }
+}
+function getUserConfigPath(root) {
+  try {
+    const supportConfigFiles = ["config.ts", "config.js"];
+    const configPath = supportConfigFiles.map((file) => resolve(root, file)).find(fs.pathExistsSync);
+    return configPath;
+  } catch (e) {
+    console.error(`Failed to load user config: ${e} / \u52A0\u8F7D\u7528\u6237\u914D\u7F6E\u5931\u8D25\uFF1A${e}`);
+    throw e;
+  }
+}
+
+// src/node/dev.ts
 async function createDevServer(root = process.cwd()) {
+  const config = await resolveConfig(root, "serve", "development");
   return createViteDevServer({
     root,
     plugins: [vitePluginIndexHtml(), pluginReact2()]
@@ -193,7 +224,7 @@ async function createDevServer(root = process.cwd()) {
 var version = require_package().version;
 var cli = cac("hhx-docs").version(version).help();
 cli.command("[root]", "start dev server / \u5F00\u542F\u5F00\u53D1\u73AF\u5883\u670D\u52A1\u5668").alias("dev").action(async (root) => {
-  root = root ? resolve(root) : process.cwd();
+  root = root ? resolve2(root) : process.cwd();
   const server = await createDevServer(root);
   try {
     await server.listen();
@@ -204,7 +235,7 @@ cli.command("[root]", "start dev server / \u5F00\u542F\u5F00\u53D1\u73AF\u5883\u
 });
 cli.command("build [root]", "build for production / \u6784\u5EFA\u4E3A\u751F\u4EA7\u73AF\u5883\u5305").action(async (root) => {
   try {
-    root = resolve(root);
+    root = resolve2(root);
     await build(root);
   } catch (e) {
     console.log(e);
