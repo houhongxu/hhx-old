@@ -9,6 +9,7 @@
 - [x] client 初始化
 - [x] 迁移博客到 apps/docs
 - [x] yarn 迁移为 pnpm
+- [ ] 与面试题无关的项目，需要发包的项目，分离出去
 - [ ] api 初始化 create-koa-cli
 - [ ] 腾讯云部署
 - [ ] CICD
