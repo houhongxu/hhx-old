@@ -9,17 +9,11 @@
 - [x] client 初始化
 - [x] 迁移博客到 apps/docs
 - [x] yarn 迁移为 pnpm
-- [ ] 与面试题无关的项目，需要发包的项目，分离出去
-- [ ] api 初始化 create-koa-cli
+- [x] 与面试题无关的项目，需要发包的项目，分离出去
 - [ ] 腾讯云部署
 - [ ] CICD
-- [ ] ui 初始化(参考 antd)
-- [ ] hooks 初始化(参考 ahooks)
 - [ ] 迁移博客到个人项目（对文档进行分类，比如学习笔记等）并支持 mdx
-
-### api 初始化脚手架 ing
-
-由于项目初期后端未使用成熟框架如 nestjs，midwayjs 等，所以自己搭建脚手架减少重复的初始化工作
+- [ ] 面试题每一个进行总结输出
 
 ## 依赖选型
 
@@ -31,6 +25,7 @@
 - umi
 - koa
 - ts
+- nextjs
 
 ## 规范
 
@@ -55,7 +50,21 @@ type 则依据 Angular 规范微调
 - refactor 重构
 - test 测试
 - perf 性能优化
-- doc 文档
+- docs 文档
+
+还有 commitlint 规范
+
+- build
+- chore
+- ci
+- docs
+- feat
+- fix
+- perf
+- refactor
+- revert
+- style
+- test
 
 ## TOLEARN
 
