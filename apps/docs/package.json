@@ -15,24 +15,25 @@
     "typecheck": "tsc"
   },
   "dependencies": {
+    "@ant-design/icons": "^4.7.0",
     "@docusaurus/core": "2.1.0",
     "@docusaurus/preset-classic": "2.1.0",
     "@mdx-js/react": "^1.6.22",
     "antd": "^4.18.5",
     "clsx": "^1.2.1",
+    "helper": "workspace:*",
     "prism-react-renderer": "^1.3.5",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "@ant-design/icons": "^4.7.0",
-    "ui": "workspace:*",
-    "helper":"workspace:*"
+    "ui": "workspace:*"
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "2.1.0",
+    "@types/mdx": "^2.0.3",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
-    "typescript": "^4.5.2",
-    "tsconfig":"workspace:*"
+    "tsconfig": "workspace:*",
+    "typescript": "^4.5.2"
   },
   "browserslist": {
     "production": [

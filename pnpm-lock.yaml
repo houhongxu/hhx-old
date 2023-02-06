@@ -41,6 +41,7 @@ importers:
       '@docusaurus/module-type-aliases': 2.1.0
       '@docusaurus/preset-classic': 2.1.0
       '@mdx-js/react': ^1.6.22
+      '@types/mdx': ^2.0.3
       '@types/react': ^17.0.0
       '@types/react-dom': ^17.0.0
       antd: ^4.18.5
@@ -66,6 +67,7 @@ importers:
       ui: link:../../packages/ui
     devDependencies:
       '@docusaurus/module-type-aliases': 2.1.0_sfoxds7t5ydpegc3knd667wn6m
+      '@types/mdx': 2.0.3
       '@types/react': 17.0.52
       '@types/react-dom': 17.0.18
       tsconfig: link:../../packages/tsconfig
@@ -4048,6 +4050,10 @@ packages:
       '@types/unist': 2.0.6
     dev: false
 
+  /@types/mdx/2.0.3:
+    resolution: {integrity: sha512-IgHxcT3RC8LzFLhKwP3gbMPeaK7BM9eBH46OdapPA7yvuIUJ8H6zHZV53J8hGZcTSnt95jANt+rTBNUUc22ACQ==}
+    dev: true
+
   /@types/mime/3.0.1:
     resolution: {integrity: sha512-Y4XFY5VJAuw0FgAqPNd6NNoV44jbq9Bz2L7Rh/J6jLTiHBSBJa9fxqQIvkIld4GsoDOcCbvzOUAbLPsSKKg+uA==}
 
@@ -5509,7 +5515,7 @@ packages:
       loader-utils: 2.0.4
       make-dir: 3.1.0
       schema-utils: 2.7.1
-      webpack: 5.75.0_webpack-cli@4.10.0
+      webpack: 5.75.0
 
   /babel-plugin-apply-mdx-type-prop/1.6.22_@babel+core@7.12.9:
     resolution: {integrity: sha512-VefL+8o+F/DfK24lPZMtJctrCVOfgbqLAGZSkxwhazQv4VxPg3Za/i40fu22KR2m8eEda+IfSOlPLUSIiLcnCQ==}
@@ -6800,7 +6806,7 @@ packages:
       postcss-modules-values: 4.0.0_postcss@8.4.20
       postcss-value-parser: 4.2.0
       semver: 7.3.8
-      webpack: 5.75.0_webpack-cli@4.10.0
+      webpack: 5.75.0
 
   /css-minimizer-webpack-plugin/4.2.2_2xq5u4vuzw4op42d4uqzx2gxfa:
     resolution: {integrity: sha512-s3Of/4jKfw1Hj9CxEO1E5oXhQAxlayuHO2y/ML+C6I9sQ7FdzfEV6QgMLN3vI+qFsjJGIAFLKtQK7t8BOXAIyA==}
@@ -9430,7 +9436,7 @@ packages:
   /history/5.3.0:
     resolution: {integrity: sha512-ZqaKwjjrAYUYfLG+htGaIIZ4nioX2L70ZUMIFysS3xvBsSG4x/n1V6TXV3N8ZYNuFGlDirFg32T7B6WOUPDYcQ==}
     dependencies:
-      '@babel/runtime': 7.18.9
+      '@babel/runtime': 7.20.6
     dev: false
 
   /hmac-drbg/1.0.1:
@@ -9511,7 +9517,7 @@ packages:
       lodash: 4.17.21
       pretty-error: 4.0.0
       tapable: 2.2.1
-      webpack: 5.75.0_webpack-cli@4.10.0
+      webpack: 5.75.0
 
   /htmlparser2/6.1.0:
     resolution: {integrity: sha512-gyyPk6rgonLFEDGoeRgQNaEUvdJ4ktTmmUh/h2t7s+M8oPpIPxgNACWa+6ESR57kXstwqPiCut0V8NRpcwgU7A==}
@@ -11258,7 +11264,7 @@ packages:
       webpack: ^5.0.0
     dependencies:
       schema-utils: 4.0.0
-      webpack: 5.75.0_webpack-cli@4.10.0
+      webpack: 5.75.0
 
   /minimalistic-assert/1.0.1:
     resolution: {integrity: sha512-UtJcAD4yEaGtjPezWuO9wC4nwUnVH/8/Im3yEHQP4b67cXlD/Qr9hdITCU1xDbSEXg2XKNaP8jsReV7vQd00/A==}
@@ -12690,7 +12696,7 @@ packages:
       klona: 2.0.5
       postcss: 8.4.20
       semver: 7.3.8
-      webpack: 5.75.0_webpack-cli@4.10.0
+      webpack: 5.75.0
 
   /postcss-logical/5.0.4_postcss@8.4.20:
     resolution: {integrity: sha512-RHXxplCeLh9VjinvMrZONq7im4wjWGlRJAqmAVLXyZaXwfDWP73/oq4NdIp+OZwhQUMj0zjqDfM5Fj7qby+B4g==}
@@ -15923,7 +15929,7 @@ packages:
       schema-utils: 3.1.1
       serialize-javascript: 6.0.0
       terser: 5.16.1
-      webpack: 5.75.0_webpack-cli@4.10.0
+      webpack: 5.75.0
 
   /terser/5.16.1:
     resolution: {integrity: sha512-xvQfyfA1ayT0qdK47zskQgRZeWLoOQ8JQ6mIgRGVNwZKdQMU+5FkCBjmv4QjcrTzyZquRw2FVtlJSRUmMKQslw==}
@@ -17159,7 +17165,7 @@ packages:
       mime-types: 2.1.35
       range-parser: 1.2.1
       schema-utils: 4.0.0
-      webpack: 5.75.0_webpack-cli@4.10.0
+      webpack: 5.75.0
 
   /webpack-dev-server/4.11.1_pda42hcaj7d62cr262fr632kue:
     resolution: {integrity: sha512-lILVz9tAUy1zGFwieuaQtYiadImb5M3d+H+L1zDYalYoDl0cksAB1UNyuE5MMWJrG6zR1tXkCP2fitl7yoUJiw==}

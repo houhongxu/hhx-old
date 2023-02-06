@@ -10,6 +10,7 @@
 - [x] 迁移博客到 apps/docs
 - [x] yarn 迁移为 pnpm
 - [x] 与面试题无关的项目，需要发包的项目，分离出去
+- [ ] hhx-docs
 - [ ] 腾讯云部署
 - [ ] CICD
 - [ ] 迁移博客到个人项目（对文档进行分类，比如学习笔记等）并支持 mdx
@@ -19,13 +20,13 @@
 
 偏向于公司已经在使用的技术
 
-- yarn（pnpm 迁移成本低，所以迁移）
-- turborepo
-- tcb
-- umi
-- koa
+- yarn（pnpm 迁移成本低，所以已迁移）
+- turborepo:在开发包时可以在现有项目中测试效果
+- tcb:小项目低成本部署
+- umi:开箱即用与 antd 结合很好的中后台框架
+- koa:轻量级 node 框架
 - ts
-- nextjs
+- nextjs:成熟的最受欢迎的 ssr 前端框架
 
 ## 规范
 
@@ -66,18 +67,7 @@ type 则依据 Angular 规范微调
 - style
 - test
 
-## TOLEARN
+## TO LEARN
 
-- [ ] ts 重写 axios
-- [ ] create-koa-cli
-- [ ] serverless,ncc,rollup,tsup 选型后端打包工具
-- [ ] 高德地图 api 封装
-
-## 功能规划
-
-### 面试题目的最小实现合集
-
-使用单独页面进行展示
-可以混合使用 mdx 进行组件库展示
-
-### 记录业务的库选型
+- [ ] ts 重写 axios,参照官方示例
+- [ ] 手写 ahooks,从用到的开始
