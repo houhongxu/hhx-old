@@ -1,5 +1,7 @@
 # mvp 版本
 
+hhx-docs 需要注意目录问题，进入 hhx-docs 目录才可以执行`hhx-docs dev docs`
+
 ## 如何不进行 link 执行脚手架
 
 cd 进入当前文件夹

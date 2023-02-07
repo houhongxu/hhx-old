@@ -1,5 +1,5 @@
-const a = {
-  a: 1,
-}
+import { defineConfig } from '../dist'
 
-export default a
+export default defineConfig({
+  title: 'mytitle',
+})

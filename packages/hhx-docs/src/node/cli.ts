@@ -16,7 +16,7 @@ cli
   .action(async (root: string) => {
     // 判断是否指定路径
     root = root ? resolve(root) : process.cwd()
-    // 实例化服务
+    // 实例化开发服务
     const server = await createDevServer(root)
 
     try {
@@ -33,6 +33,7 @@ cli
 cli.command('build [root]', 'build for production / 构建为生产环境包').action(async (root: string) => {
   try {
     root = resolve(root)
+    // 开始构建
     await build(root)
   } catch (e) {
     console.log(e)

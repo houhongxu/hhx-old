@@ -7,7 +7,6 @@
     "dev": "tsup --watch",
     "dev:comment": "--watch 表示监听模式，这样修改文件后就会自动触发重新编译",
     "build": "tsup",
-    "preview": "cd build && serve .",
     "test:unit": "vitest run",
     "test:comment": "直接使用vitest命令可以开启监听模式",
     "prepare:e2e": "tsx scripts/prepare-e2e.ts",
@@ -40,6 +39,6 @@
     "ora": "^6.1.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "vite": "^3.2.4"
+    "vite": "^3.2.1"
   }
 }

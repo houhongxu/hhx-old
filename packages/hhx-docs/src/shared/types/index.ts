@@ -33,3 +33,9 @@ export interface Footer {
   message?: string
   copyright?: string
 }
+
+export interface SiteConfig {
+  root: string
+  configPath: string
+  siteData: UserConfig
+}

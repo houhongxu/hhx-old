@@ -2,6 +2,7 @@ import { readFile } from 'fs/promises'
 import { Plugin } from 'vite'
 import { CLIENT_ENTRY_PATH, DEFAULT_HTML_PATH } from '../constants'
 
+// 入口 HTML 处理插件
 export function vitePluginIndexHtml(): Plugin {
   return {
     name: 'hhx-docs:index-html',
@@ -22,7 +23,7 @@ export function vitePluginIndexHtml(): Plugin {
       }
     },
     configureServer(server) {
-      // 拦截根目录请求进行响应
+      // 拦截请求进行响应，返回处理后的html模板
       return () => {
         server.middlewares.use(async (req, res, next) => {
           // 读取模板文件

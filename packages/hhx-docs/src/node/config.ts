@@ -1,11 +1,31 @@
 import { resolve } from 'path'
 import fs from 'fs-extra'
 import { loadConfigFromFile } from 'vite'
-import { UserConfig } from '../shared/types'
+import { SiteConfig, UserConfig } from '../shared/types'
 
 type RawConfig = UserConfig | Promise<UserConfig> | (() => UserConfig | Promise<UserConfig>)
 
+export function resolveSiteData(userConfig: UserConfig): UserConfig {
+  return {
+    title: userConfig.title || 'HHX-DOCS',
+    description: userConfig.description || 'SSG Framework',
+    themeConfig: userConfig.themeConfig || {},
+    vite: userConfig.vite || {},
+  }
+}
+
 export async function resolveConfig(root: string, command: 'serve' | 'build', mode: 'development' | 'production') {
+  const [configPath, userConfig] = await resolveUserConfig(root, command, mode)
+
+  const siteConfig: SiteConfig = {
+    root,
+    configPath: configPath,
+    siteData: resolveSiteData(userConfig as UserConfig),
+  }
+  return siteConfig
+}
+
+export async function resolveUserConfig(root: string, command: 'serve' | 'build', mode: 'development' | 'production') {
   // 获取配置文件路径
   const configPath = getUserConfigPath(root)
   // 读取配置文件内容
@@ -18,11 +38,11 @@ export async function resolveConfig(root: string, command: 'serve' | 'build', mo
     // 1. object
     // 2. promise
     // 3. function
-    const userConfig = await (typeof rawConfig === 'function' ? rawConfig() : rawConfig)
+    const userConfig = (await (typeof rawConfig === 'function' ? rawConfig() : rawConfig)) as UserConfig
 
-    return [configPath, userConfig]
+    return [configPath, userConfig] as const
   } else {
-    return [configPath, {} as UserConfig] as const
+    return [configPath, {}] as const
   }
 }
 
@@ -37,4 +57,8 @@ function getUserConfigPath(root: string) {
     console.error(`Failed to load user config: ${e} / 加载用户配置失败：${e}`)
     throw e
   }
+}
+
+export function defineConfig(config: UserConfig) {
+  return config
 }
